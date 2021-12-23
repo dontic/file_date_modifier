@@ -55,4 +55,4 @@ modate -f *.png -d 20211222_154210 -c
 
 ## Upcoming features
 - [x] macOS compatibility
-- [] Change each file's date based on a date specified in its filename i.e.: ```IMG_2021-12-23_19-14-19.jpg```
+- [ ] Change each file's date based on a date specified in its filename i.e.: ```IMG_2021-12-23_19-14-19.jpg```
