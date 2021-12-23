@@ -1,7 +1,8 @@
 # modate
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)  
 ![Windows](https://svgshare.com/i/ZhY.svg) ![macOS](https://svgshare.com/i/ZjP.svg)  
-[![Status](https://img.shields.io/pypi/status/modate)](https://pypi.org/manage/project/modate/release/0.0.1/)
+[![PyPi version](https://badgen.net/pypi/v/modate/)](https://pypi.com/project/modate) [![Status](https://img.shields.io/pypi/status/modate)](https://pypi.org/manage/project/modate/release/0.0.1/)  
+
 
 > :warning: Under early developement, beware of file corruption
 > :warning: The tool currently only works on Windows machines
