@@ -1,4 +1,9 @@
-# modate [![stability][0]][1]
+# modate
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+![Windows](https://svgshare.com/i/ZhY.svg) ![macOS](https://svgshare.com/i/ZjP.svg)
+[![Status](https://img.shields.io/pypi/status/modate)](https://pypi.org/manage/project/modate/release/0.0.1/)
+> :warning: Under early developement
+
 
 modate is a Python command line tool that changes a file's or group of files "created", "modified" or "last accessed" dates.
 
@@ -15,8 +20,6 @@ pip install .
 ```
 
 #### Using pip
-> :warning: Under developement
-> Not yet available
 ```bash
 pip install modate
 ```
