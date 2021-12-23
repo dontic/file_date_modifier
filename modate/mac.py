@@ -23,7 +23,6 @@ def setMacFileDateTimes(filePath,date,created,modified,accessed):
 
 def getFilepaths(filepath):
     # Get all filepaths in case of wildcard
-    print(filepath)
     filepaths = []
     filepaths = list(glob(filepath))
     if len(filepaths) == 0 and '*' not in filepath:
