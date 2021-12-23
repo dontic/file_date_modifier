@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='modate',
-    version='0.0.1',    
+    version='1.0.0',    
     description='A python package to change "created", "modificated" or "last accessed" dates of a file.',
     url='https://github.com/dontic/modate',
     author='Daniel Garcia Sanchez',
@@ -18,7 +18,7 @@ setup(
     classifiers=[
         'Environment :: Console',
         'Natural Language :: English',
-        'Development Status :: 1 - Planning',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: End Users/Desktop',
         'Topic :: Desktop Environment :: File Managers',
         'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',      
