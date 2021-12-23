@@ -2,12 +2,11 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)  
 ![Windows](https://svgshare.com/i/ZhY.svg) ![macOS](https://svgshare.com/i/ZjP.svg)  
 [![Status](https://img.shields.io/pypi/status/modate)](https://pypi.org/manage/project/modate/release/0.0.1/)
-> :warning: Under early developement
 
+> :warning: Under early developement, beware of file corruption
+> :warning: The tool currently only works on Windows machines
 
-modate is a Python command line tool that changes a file's or group of files "created", "modified" or "last accessed" dates.
-
-The tool currently only works on Windows machines.
+modate is a Python command line tool that changes a file's or group of files' "created", "modified" or "last accessed" dates.
 
 ## Installation
 
@@ -19,7 +18,7 @@ cd path/to/modate
 pip install .
 ```
 
-#### Using pip
+### Install Using pip
 ```bash
 pip install modate
 ```
@@ -48,3 +47,7 @@ modate -f sample.jpg -d 20211222_154210 -c
 # Change the modification and creation time of data.csv
 modate -f data.csv -d 20211222_154210 -m -c
 ```
+
+## Upcoming features
+- macOS compatibility
+- Change each file's date based on a date specified in its filename i.e.: ```IMG_2021-12-23_19-14-19.jpg```
