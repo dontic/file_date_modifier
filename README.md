@@ -4,7 +4,7 @@
 [![PyPi version](https://badgen.net/pypi/v/modate/)](https://pypi.com/project/modate) [![Status](https://img.shields.io/pypi/status/modate)](https://pypi.org/manage/project/modate/release/0.0.1/)  
 
 
-> :warning: Under early developement, beware of file corruption
+> :warning: Under early developement, beware of file corruption  
 > :warning: The tool currently only works on Windows machines
 
 modate is a Python command line tool that changes a file's or group of files' "created", "modified" or "last accessed" dates.
