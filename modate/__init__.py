@@ -5,12 +5,11 @@ from re import match
 
 @click.command()
 @click.option('-f', '--filepath', prompt=False, help='Filepath of the file(s) to modify. Accepts wildcard arguments.')
-@click.option('-d', '--date', prompt=False, help='Date to be modified')
-@click.option('-df', '--date_format', prompt=False, help='Specify format in which the date is stated in the filename, use strftime formats.\n \
-    See https://www.programiz.com/python-programming/datetime/strftime')
-@click.option('-c', '--created', is_flag=True, help='Change the "created" datetime')
-@click.option('-m', '--modified', is_flag=True, help='Change the "modified" datetime')
-@click.option('-a', '--accessed', is_flag=True, help='Change the "last opened" datetime')
+@click.option('-d', '--date', prompt=False, help='Datetime to use.')
+@click.option('-df', '--date_format', prompt=False, help='Specify format in which the datetime is stated in the filename. Use strftime directives.')
+@click.option('-c', '--created', is_flag=True, help='Change the "created" datetime.')
+@click.option('-m', '--modified', is_flag=True, help='Change the "modified" datetime.')
+@click.option('-a', '--accessed', is_flag=True, help='Change the "last opened" datetime.')
 
 
 def main(filepath,date,date_format,created,modified,accessed):
