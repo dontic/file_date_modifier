@@ -2,14 +2,14 @@ from setuptools import setup
 
 setup(
     name='modate',
-    version='1.0.0',    
+    version='1.0.1',    
     description='A python package to change "created", "modificated" or "last accessed" dates of a file.',
     url='https://github.com/dontic/modate',
     author='Daniel Garcia Sanchez',
     author_email='',
     license='LGPLv3+',
     packages=['modate'],
-    install_requires=['click'],
+    install_requires=['click','datetime-matcher'],
     entry_points={
         'console_scripts': 
         ['modate=modate:main',
