@@ -57,9 +57,9 @@ Change the 'created' time of all png files in a folder to 2021-Nov-22 15:42:10
 modate -f *.png -d 20211222_154210 -c
 ```
 
-Change the 'modified' time of all png files in a folder automatically
+Change the 'modified' time of all files in a folder automatically
 ```bash
-# Files used:
+# Files in the folder:
 # data_2021-11-22_15-42-10.csv
 # data_2021-12-10_23-02-56.csv
 # data_2021-12-27_12-23-38.csv
