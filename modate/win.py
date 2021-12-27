@@ -1,7 +1,9 @@
+import click
 import win32file, win32con
 import pywintypes
-import click
-import glob
+from glob import glob
+from datetime_matcher import DatetimeMatcher
+dtmatcher = DatetimeMatcher()
 
 def setWinFileDateTimes(filePath,date,created,modified,accessed):
     # Convert datetimes to pywintypes
@@ -24,12 +26,31 @@ def getFilepaths(filepath):
     filepaths = []
     filepaths = list(glob(filepath))
     if len(filepaths) == 0 and '*' not in filepath:
-        raise(click.BadParameter("File '%s' not found" % format(filepath)))
+        raise(click.BadParameter("File(s) '%s' not found" % format(filepath)))
     return(filepaths)
 
 
-def main(filepath,date,created,modified,accessed):
-    filepaths = getFilepaths(filepath)
+def filedatetime(filename,date_format):
+    try:
+        search = r''+date_format
+        date = dtmatcher.extract_datetime(search, filename)
+    except:
+        raise(click.BadParameter("Date not found, please check the date format introduced: %s" % date_format))
+    return(date)
 
+
+def main(filepath,date,date_format,created,modified,accessed):
+
+    # Find files
+    print('Searching for files with %s' % filepath)
+    filepaths = getFilepaths(filepath)
+    print('Files found:')
+    print(*filepaths, sep = '\n')
+
+    # Modify dates
     for file in filepaths:
+        filename = file.split('/')[-1]
+        if date_format is not None:
+            date = filedatetime(filename,date_format)
+        print('Using date: %s for file %s' % (date.strftime('%Y-%b-%d %H:%M:%S'),filename))
         setWinFileDateTimes(file,date,created,modified,accessed)

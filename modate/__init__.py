@@ -1,24 +1,34 @@
 import click
 import platform
 from datetime import datetime
+from re import match
 
 @click.command()
 @click.option('-f', '--filepath', prompt=False, help='Filepath of the file(s) to modify. Accepts wildcard arguments.')
 @click.option('-d', '--date', prompt=False, help='Date to be modified')
-# @click.option('-df', '--date_in_filename', prompt=False)
+@click.option('-df', '--date_format', prompt=False, help='Specify format in which the date is stated in the filename, use strftime formats.\n \
+    See https://www.programiz.com/python-programming/datetime/strftime')
 @click.option('-c', '--created', is_flag=True, help='Change the "created" datetime')
 @click.option('-m', '--modified', is_flag=True, help='Change the "modified" datetime')
 @click.option('-a', '--accessed', is_flag=True, help='Change the "last opened" datetime')
 
-def main(filepath,date,created,modified,accessed):
+
+def main(filepath,date,date_format,created,modified,accessed):
     # Convert input date to datetime
-    date = todatetime(date)
+    if date is not None:
+        date = todatetime(date)
+        print('Using date: %s for file %s' % date.strftime('%Y-%b-%d %H:%M:%S'),filepath.split('/')[-1])
+    elif date_format is not None:
+        pass # Needs to be handled separately for each file and each system
+    else:
+        raise(click.BadParameter("No date passed.\n Please declare a date to modify.\n Use 'modate --help' to check the functionality."))
+
     if platform.system() == 'Windows':
-        from . import win
-        win.main(filepath,date,created,modified,accessed)
+        from modate import win
+        win.main(filepath,date,date_format,created,modified,accessed)
     elif platform.system() == 'Darwin':
-        from . import mac
-        mac.main(filepath,date,created,modified,accessed)
+        from modate import mac
+        mac.main(filepath,date,date_format,created,modified,accessed)
     else:
         print('The tool is not yet available for this platform')
 

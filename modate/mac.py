@@ -1,8 +1,9 @@
+import click
 import os
 from glob import glob
-from subprocess import call
-import click
 from datetime import datetime
+from datetime_matcher import DatetimeMatcher
+dtmatcher = DatetimeMatcher()
 
 
 def setMacFileDateTimes(filePath,date,created,modified,accessed):
@@ -30,8 +31,27 @@ def getFilepaths(filepath):
     return(filepaths)
 
 
-def main(filepath,date,created,modified,accessed):
-    filepaths = getFilepaths(filepath)
+def filedatetime(filename,date_format):
+    try:
+        search = r''+date_format
+        date = dtmatcher.extract_datetime(search, filename)
+    except:
+        raise(click.BadParameter("Date not found, please check the date format introduced: %s" % date_format))
+    return(date)
 
+
+def main(filepath,date,date_format,created,modified,accessed):
+
+    # Find files
+    print('Searching for files with %s' % filepath)
+    filepaths = getFilepaths(filepath)
+    print('Files found:')
+    print(*filepaths, sep = '\n')
+    
+    # Modify dates
     for file in filepaths:
+        filename = file.split('/')[-1]
+        if date_format is not None:
+            date = filedatetime(filename,date_format)
+        print('Using date: %s for file %s' % (date.strftime('%Y-%b-%d %H:%M:%S'),filename))
         setMacFileDateTimes(file,date,created,modified,accessed)
