@@ -44,7 +44,7 @@ modate -f sample.jpg -d 20211222_154210 -c
 
 Change the 'created' time of img_2021-11-22.jpg automatically
 ```bash
-modate -f sample.jpg -df %Y%m%d -c
+modate -f img_2021-11-22.jpg -df %Y%m%d -c
 ```
 
 Change the 'modified' and 'created' time of data.csv to 2021-Nov-22 15:42:10
@@ -64,7 +64,7 @@ Change the 'modified' time of all files in a folder automatically
 # data_2021-12-10_23-02-56.csv
 # data_2021-12-27_12-23-38.csv
 
-modate -f *.csv -df %Y-%m-%d_%H-%M-%S -c
+modate -f *.csv -df %Y-%m-%d_%H-%M-%S -m
 ```
 
 ## Upcoming features
